@@ -32,6 +32,7 @@ func TestAnnotationLoggerNoError(t *testing.T) {
 	l.Debug("debug")
 	s.End()
 	assert.Len(t, exp.SpanData.Attributes,0)
+	assert.Len(t, exp.SpanData.Annotations,2)
 	assert.Equal(t, "info", exp.SpanData.Annotations[0].Message)
 	assert.Equal(t, "info", exp.SpanData.Annotations[0].Attributes["level"])
 	assert.Equal(t, "debug", exp.SpanData.Annotations[1].Message)
